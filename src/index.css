@@ -4,7 +4,7 @@
   --theme:#2c187e;
   --black:black;
   --white:white;
-  --shadow-color:rgb(227,227,227,0.75);
+  --shadow-color:0px 0px 30px 8px rgb(227,227,227,0.75);
 }
 
 body {

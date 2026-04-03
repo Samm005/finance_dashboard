@@ -1,14 +1,17 @@
 import { useState } from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router'
 import './App.css'
-import Header from './components/Header'
+import Signup from './pages/Signup'
+import Dashboard from './pages/Dashboard'
 
 function App() {
-
-
   return (
-    <>
-     <div><Header/></div>
-    </>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Signup/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
+      </Routes>
+    </Router>
   )
 }
 

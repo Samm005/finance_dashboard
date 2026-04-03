@@ -1,0 +1,28 @@
+.input-wrapper{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.label-input{
+    text-transform: capitalize;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.input-field{
+    border-width: 0;
+    border-bottom-width: 0.11rem;
+    width:99%;
+    padding: 0.5rem 0;
+    font-size: 0.8rem;
+    opacity: 0.75;
+}
+
+.input-field:focus{
+    outline: none;
+    border-bottom-color: var(--theme);
+    opacity: 2;
+    color: var(--black);
+    transition: all 0.3s ease;
+}

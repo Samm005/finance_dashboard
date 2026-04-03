@@ -1,5 +1,47 @@
 .navbar{
     background-color: var(--theme);
-    color: antiquewhite;
-    margin: 0.5px;
+    padding: 0.5rem 1.5rem;
+    position:sticky;
+    top:0;
+    left:0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.logo{
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    animation: fadeSlide 1s ease-in-out;
+}
+
+.logo:hover{
+    text-shadow: 0 0 8px rgb(167, 17, 0);
+    scale: 1.05;
+}
+
+.link{
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+.link:hover {
+  color: var(--white);
+  text-shadow: 0 0 8px rgb(248, 252, 0);
+  scale: 1.05;
 }
