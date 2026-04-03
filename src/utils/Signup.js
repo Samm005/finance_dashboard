@@ -35,7 +35,7 @@ export async function signupWithEmail({
             setEmail("");
             setPassword("");
             setConfirmPassword("");
-            createDoc(user.uid);
+            createDoc(user.uid, user, fullName, email);
             navigate("/dashboard");
           })
           .catch((error) => {

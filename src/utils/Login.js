@@ -10,6 +10,7 @@ export async function loginWithEmail({
   setPassword,
   navigate
 }) {
+    setLoading(true);
   if (email === "" || password === "") {
     toast.error("Please fill all the fields");
     setLoading(false);
