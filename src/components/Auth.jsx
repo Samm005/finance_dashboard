@@ -1,8 +1,10 @@
 import "./Auth.css";
 import Input from "./Input";
 import Button from "./Button";
-import { useState } from "react";
-import {signupWithEmail} from "../utils/Signup";
+import { use, useState } from "react";
+import { signupWithEmail } from "../utils/Signup";
+import { loginWithEmail } from "../utils/Login";
+import { useNavigate } from "react-router-dom";
 
 function AuthComponent() {
   const [fullName, setFullName] = useState("");
@@ -10,64 +12,131 @@ function AuthComponent() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [login, setLogin] = useState(false);
+  const navigate=useNavigate();
+
+  const isLogin = login;
+
+  const resetFields = () => {
+    setFullName("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+    setLoading(false);
+  };
 
   return (
     <div className="signup-wrapper">
       <h1 className="signup-head">
-        Sign Up on <span>WealthTrack</span>
+        {isLogin ? "Login" : "Sign Up"} on <span>WealthTrack</span>
       </h1>
 
-      <form>
+      <form onSubmit={(e) => e.preventDefault()}>
+        {/* Full Name (only signup) */}
+        {!isLogin && (
+          <Input
+            label="Full Name"
+            state={fullName}
+            setState={setFullName}
+            placeholder="Enter your full name"
+          />
+        )}
+
+        {/* Email */}
         <Input
-          label="Full Name"
-          state={fullName}
-          setState={setFullName}
-          placeholder="Enter your full name"
-        />
-        <Input
-          type={"email"}
+          type="email"
           label="Email"
           state={email}
           setState={setEmail}
           placeholder="Enter your email"
         />
+
+        {/* Password */}
         <Input
-          type={"password"}
+          type="password"
           label="Password"
           state={password}
           setState={setPassword}
           placeholder="Enter your password"
         />
-        <Input
-          type={"password"}
-          label="Confirm Password"
-          state={confirmPassword}
-          setState={setConfirmPassword}
-          placeholder="Confirm your password"
-        />
 
+        {/* Confirm Password (only signup) */}
+        {!isLogin && (
+          <Input
+            type="password"
+            label="Confirm Password"
+            state={confirmPassword}
+            setState={setConfirmPassword}
+            placeholder="Confirm your password"
+          />
+        )}
+
+        {/* Main Button */}
         <Button
           disabled={loading}
-          text={loading ? "Signing Up..." : "Sign Up using Email and Password"}
-          onClick={() =>
-            signupWithEmail({
-              fullName,
-              email,
-              password,
-              confirmPassword,
-              setLoading,
-              setFullName,
-              setEmail,
-              setPassword,
-              setConfirmPassword,
-            })
+          text={
+            loading
+              ? isLogin
+                ? "Logging In..."
+                : "Signing Up..."
+              : isLogin
+                ? "Log In using Email and Password"
+                : "Sign Up using Email and Password"
           }
+          onClick={() => {
+            if (isLogin) {
+              loginWithEmail({
+                email,
+                password,
+                setLoading,
+                setEmail,
+                setPassword,
+                navigate
+              });
+            } else {
+              signupWithEmail({
+                fullName,
+                email,
+                password,
+                confirmPassword,
+                setLoading,
+                setFullName,
+                setEmail,
+                setPassword,
+                setConfirmPassword,
+                navigate
+              });
+            }
+          }}
         />
+
+        {/* Google Button */}
         <Button
-          text={loading ? "Signing Up..." : "Sign Up using Google"}
+          text={
+            loading
+              ? isLogin
+                ? "Logging In..."
+                : "Signing Up..."
+              : isLogin
+                ? "Log In using Google"
+                : "Sign Up using Google"
+          }
           blue={true}
           disabled={loading}
         />
+
+        {/* Toggle */}
+        <p
+          className="toggle-login"
+          onClick={() => {
+            setLogin((prev) => !prev);
+            resetFields();
+          }}
+        >
+          {isLogin
+            ? "Don't have an account? Sign up"
+            : "Already have an account? Log In"}
+        </p>
       </form>
     </div>
   );

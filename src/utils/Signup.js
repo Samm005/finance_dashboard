@@ -13,6 +13,7 @@ export async function signupWithEmail({
   setEmail,
   setPassword,
   setConfirmPassword,
+  navigate
 }) {
     setLoading(true);
     if (
@@ -35,6 +36,7 @@ export async function signupWithEmail({
             setPassword("");
             setConfirmPassword("");
             createDoc(user.uid);
+            navigate("/dashboard");
           })
           .catch((error) => {
             const errorCode = error.code;
