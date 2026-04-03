@@ -1,0 +1,1 @@
+export async function createDoc(user) {}

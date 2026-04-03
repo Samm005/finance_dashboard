@@ -1,26 +1,26 @@
-.signup-wrapper{
-    width: 65%;
-    max-width: 400px;
-    height:auto;
-    box-shadow: var(--shadow-color);
-    border-radius: 1rem;
-    padding:1rem 2rem;
-    transition: transform 0.7s ease;
+.signup-wrapper {
+  width: 65%;
+  max-width: 400px;
+  height: auto;
+  box-shadow: var(--shadow-color);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  transition: transform 0.7s ease;
 }
 
-.signup-wrapper:hover{
-    border:2px solid var(--theme);
-    transform: scale(1.02);
+.signup-wrapper:hover {
+  border: 2px solid var(--theme);
+  transform: scale(1.02);
 }
 
-.signup-head{
-    font-size: 1.5rem;
-    font-weight:600 ;
-    text-align: center;
+.signup-head {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
 }
 
-.signup-head span{
-    color:var(--theme);
-    font-weight: 700;
-    margin-bottom: 0.6rem;
+.signup-head span {
+  color: var(--theme);
+  font-weight: 700;
+  margin-bottom: 0.6rem;
 }
