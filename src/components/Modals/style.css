@@ -1,0 +1,33 @@
+.btn{
+    background-color: var(--theme);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    text-align: center;
+    width: 20%;
+}
+
+.custom-input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px !important;
+  border: 1px solid #d9d9d9;
+  font-size: 14px;
+  background-color: #fafafa;
+  transition: all 0.2s ease;
+}
+
+.custom-input:hover {
+  border-color: #1677ff;
+}
+
+.custom-input:focus,
+.ant-picker-focused {
+  border-color: #1677ff !important;
+  box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.1);
+}
+
+.ant-picker.custom-input {
+  border-radius: 8px !important;
+}

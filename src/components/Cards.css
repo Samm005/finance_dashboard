@@ -1,0 +1,38 @@
+.my-card{
+    box-shadow: var(--shadow-color);
+    min-width: 400px;
+    font-family: 'Montserrat', sans-serif !important;
+    border-radius: 1rem;
+    margin: 0.8rem;
+    flex:1;
+}
+
+.my-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.8rem auto;
+    width:90%;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.my-btn{
+    background-color: var(--theme);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    width: 90%;
+    border-radius: 0.5rem;
+}
+
+.ant-card-head-title{
+    font-size: 1.3rem;
+    padding: 1rem;
+    margin: 0;
+    color: rgb(92, 87, 87)
+}
