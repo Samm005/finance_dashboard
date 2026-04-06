@@ -5,6 +5,7 @@ import { use, useState } from "react";
 import { signupWithEmail } from "../utils/Signup";
 import { loginWithEmail } from "../utils/Login";
 import { useNavigate } from "react-router-dom";
+import { googleAuth } from "../utils/googleAuth";
 
 function AuthComponent() {
   const [fullName, setFullName] = useState("");
@@ -112,6 +113,7 @@ function AuthComponent() {
 
         {/* Google Button */}
         <Button
+        onClick={() => googleAuth({ setLoading, navigate})}
           text={
             loading
               ? isLogin
